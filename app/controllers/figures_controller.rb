@@ -37,9 +37,11 @@ class FiguresController < ApplicationController
   end
 
   post "/figures/:index/edit" do
-    @figure = Figure.find_by(params[:index])
-    @figure.update(name)
     #binding.pry
+    @figure = Figure.find(params[:index])
+    @figure.update(name: params[:figure][:name])
+    @figure.landmarks << Landmark.create(params[:landmark])
+    @figure.save
     redirect "/figures/#{@figure.id}"
   end
 
