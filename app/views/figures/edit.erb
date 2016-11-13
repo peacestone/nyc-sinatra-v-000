@@ -1,6 +1,6 @@
-<form class="" action="/figures" method="post">
+<form class="" action="/figures/<%=@figure.id%>/edit" method="post">
   <label>Figure Name:</label><br><br>
-<input type="text" id="figure_name" name="figure[name]" value="">
+<input type="text" id="figure_name" name="figure[name]" value="<%=@figure.name%>">
 <br><br>
 <label>Select a title</label> <br><br>
 <%Title.all.each do |title| %>
@@ -25,6 +25,6 @@ Or create/add a new Landmark: <br><br>
 
 <input type="text" name="title[name]" value="" id="new_title">
 <br><br>
-<input type="submit"  value="Create New Figure">
+<input type="submit"  value="Edit Figure">
 
 </form>
